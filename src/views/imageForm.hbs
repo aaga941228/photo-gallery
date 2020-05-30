@@ -2,9 +2,9 @@
   <div class="col-md-4">
     <div class="card">
       <div class="card-body">
-        <form action="/image/add" method="POST" enctype="multipart/form-data">
+        <form action="/images/add" method="POST" enctype="multipart/form-data">
           <div class="form-group">
-            <input type="text" placeholder="Image title" class="form-control">
+            <input type="text" placeholder="Image title" name="title" class="form-control">
           </div>
           <div class="form-group">
             <textarea name="description" class="form-control"></textarea>
@@ -19,5 +19,28 @@
         </form>
       </div>
     </div>
+  </div>
+
+  <div class="col-md-8">
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">Title</th>
+          <th scope="col">Description</th>
+          <th scope="col">Operations</th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        {{#each photos}}
+          <tr>
+            <td>{{title}}</td>
+            <td>{{description}}</td>
+            <td><a href="{{imageURL}}" target="_blank" class="btn btn-primary">View</a></td>
+            <td><a href="/images/delete/{{_id}}" class="btn btn-danger">Delete</a></td>
+          </tr>
+        {{/each}}
+      </tbody>
+    </table>
   </div>
 </div>

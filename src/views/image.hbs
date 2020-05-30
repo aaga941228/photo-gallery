@@ -1,1 +1,12 @@
-<h1>Image</h1>
+<h2>Images</h2>
+<div class="row">
+  {{#each photos}}
+    <div class="col-md-4 p-2">
+      <div class="card">
+        <div class="card-body">
+          <img src="{{imageURL}}" alt="" class="img-fluid w-100">
+        </div>
+      </div>
+    </div>
+  {{/each}}
+</div>
