@@ -7,6 +7,8 @@ const config = require("./config");
 
 const app = express();
 
+require("./database");
+
 app.set("views", path.join(__dirname, "views"));
 app.engine(
   ".hbs",
@@ -32,6 +34,8 @@ const storage = multer.diskStorage({
   },
 });
 app.use(multer({ storage }).single("image"));
+
+app.use(require("./routes"));
 
 app.listen(config.port, () => {
   console.log(`server on port ${config.port}`);
